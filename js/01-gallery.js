@@ -26,6 +26,9 @@ function createGalleryMarkup(images) {
 
 function onImegeClick(event) {
   event.preventDefault();
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
   const instance = basicLightbox.create(
     `
     <img src="${event.target.dataset.source}">`,
@@ -51,5 +54,3 @@ function onImegeClick(event) {
 }
 
 console.log(galleryItems);
-
-//не подобається, що коли натискаєш на малюнок, він закривається. хотів, щоб тільки віл Еск та кліком за млюнком
